@@ -35,7 +35,7 @@ define KernelPackage/mlnx-ofed
 	SUBMENU:=Network Devices
 	VERSION:=$(LINUX_VERSION)+$(PKG_VERSION)-$(BOARD)-$(PKG_RELEASE)
 	FILES:= `find $(PKG_BUILD_DIR)/ \( -name "*.ko" -o -name "*.ko.gz" \)`
-	DEPENDS:=@PCI_SUPPORT +kmod-ptp
+	DEPENDS:=@PCI_SUPPORT +kmod-ptp +fs-configfs +macsec +mlxfw +psample +tls
 	CONFLICTS:=kmod-mlxfw kmod-mlx4 kmod-mlx4-core kmod-mlx5 kmod-mlx5-core \
 		kmod-mlxsw-core kmod-mlxsw-i2c kmod-mlxsw-minimal kmod-mlxsw-pci kmod-mlxsw-spectrum	
 	KCONFIG:= CONFIG_MLX5_CORE \
