@@ -5,17 +5,17 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mlnx-ofed
-PKG_VERSION:=5.8-5.1.1.2
+PKG_VERSION:=5.8-6.0.4.2
 PKG_RELEASE:=1
 
 # kernel 5.x = use 5.x ¿
 ifeq ($(word 1,$(subst .,$(space),$(LINUX_VERSION))),5)
-	PKG_VERSION:=5.8-5.1.1.2
-	PKG_HASH:=216ce7ada1ab01a7706982fa1c5f1b453295f537f56156563d083c8504e11dfd
+	PKG_VERSION:=5.8-6.0.4.2
+	PKG_HASH:=070c0f1b936681e21df2ac7be1ea490fcbc9adbc04b4b616fc74f322bf1aee90
 # kernel 6.x = use 24.04 ¿ (uuu24.04 = 6.8)
 else ifeq ($(word 1,$(subst .,$(space),$(LINUX_VERSION))),6)
-	PKG_VERSION:=24.04-0.7.0.0
-	PKG_HASH:=bdbbe3459c1169fd8de6bf743823ce9e95af7d11702ceeae1ebbafc31b9b7032
+	PKG_VERSION:=24.10-1.1.4.0
+	PKG_HASH:=07dd7e856c94d8f3f33d1cfb357c28fde9e3f4326994ea93fbee32c6dfa59060
 endif
 
 # https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/
@@ -25,7 +25,6 @@ endif
 
 PKG_SOURCE:=MLNX_OFED_SRC-debian-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=https://www.mellanox.com/downloads/ofed/MLNX_OFED-$(PKG_VERSION)/
-
 PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
